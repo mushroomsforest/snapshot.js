@@ -6,7 +6,7 @@ const NO_TOKEN = `${'0x'.padEnd(42, '0')}`;
 
 const ARAGON_SUBGRAPH_URL = {
   '1': 'https://api.thegraph.com/subgraphs/name/aragon/aragon-govern-mainnet',
-  '4': 'https://api.thegraph.com/subgraphs/name/novaknole/aragon-govern-rinkeby'
+  '4': 'https://api.thegraph.com/subgraphs/name/aragon/aragon-govern-rinkeby'
 };
 
 const queueAbi = [
@@ -123,6 +123,11 @@ const queueAbi = [
                 internalType: 'bytes',
                 name: 'rules',
                 type: 'bytes'
+              },
+              {
+                internalType: 'uint256',
+                name: 'maxCalldataSize',
+                type: 'uint256'
               }
             ],
             internalType: 'struct ERC3000Data.Config',
@@ -231,7 +236,8 @@ const GQL_QUERY = {
           amount: true
         },
         resolver: true,
-        rules: true
+        rules: true,
+        maxCalldataSize: true
       }
     }
   }
@@ -335,7 +341,8 @@ async function scheduleAction(
             amount: config.challengeDeposit.amount
           },
           resolver: config.resolver,
-          rules: config.rules
+          rules: config.rules,
+          maxCalldataSize: config.maxCalldataSize
         }
       }
     ],

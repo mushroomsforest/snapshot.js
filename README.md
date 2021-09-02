@@ -14,6 +14,17 @@ You can create an index.html file and include Snapshot.js with:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/@snapshot-labs/snapshot.js"></script>
 ```
+### Development
+
+#### Install dependencies
+```bash
+npm install
+```
+
+#### Build package
+```bash
+npm run build
+```
 
 ### License
 [MIT](LICENSE).
